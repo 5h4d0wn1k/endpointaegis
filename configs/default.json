@@ -1,0 +1,14 @@
+{
+    "version": "1.0.0",
+    "fixtures_root": "tests/fixtures/hosts",
+    "default_profile": "good",
+    "reports_dir": "reports",
+    "scoring_weights": {
+        "services": 14,
+        "patch": 14,
+        "sockets": 14,
+        "users": 14,
+        "files": 13,
+        "baseline": 31
+    }
+}

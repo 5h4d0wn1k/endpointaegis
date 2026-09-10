@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "endpointaegis"
+version = "1.0.0"
+description = "EDR-lite & host-hardening auditor — read-only 0-100 score, persistence/service/patch/socket audit, drift baseline, HTML+JSON reports"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [{name = "5h4d0wn1k", email = "5h4d0wn1k@users.noreply.github.com"}]
+keywords = ["edr", "hardening", "audit", "security", "compliance"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+]
+
+[project.scripts]
+endpointaegis = "endpointaegis.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["endpointaegis*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
