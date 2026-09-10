@@ -1,4 +1,5 @@
 # endpointaegis
+![tests](https://github.com/5h4d0wn1k/endpointaegis/actions/workflows/ci.yml/badge.svg) ![MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 EDR-lite & host-hardening auditor — 0-100 hardening score, persistence/service/patch/socket audit, drift baseline, HTML+JSON reports. Reads genuine host state **read-only**; never modifies the audited system.
 
@@ -170,3 +171,6 @@ Measured 2026-09-10 after the feature-complete demo run (`endpointaegis demo`):
 - Commit identity: `5h4d0wn1k <5h4d0wn1k@users.noreply.github.com>`.
 - Feature-by-feature commits; never push; keep the tree clean.
 - Never weaken the safety gates or legal notices.
+
+## Contributing
+See [CONTRIBUTING.md](CONTRIBUTING.md).
