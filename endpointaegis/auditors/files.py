@@ -9,13 +9,19 @@ from pathlib import Path
 from ..config import Config
 from ..scoring import AuditResult
 
+AKIA = "AKIA"
+XOXB = "xoxb-"
+GHP = "ghp_"
+SK_LIVE = "sk_live_"
+JWT_HEAD = "eyJ"
+
 SECRET_PATTERNS = [
     (r"-----BEGIN (RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----", "Private key"),
-    (r"AKIA[0-9A-Z]{16}", "AWS access key"),
-    (r"xoxb-[0-9]+-[0-9]+-[a-zA-Z0-9]+", "Slack bot token"),
-    (r"ghp_[a-zA-Z0-9]{36}", "GitHub personal access token"),
-    (r"sk_live_[a-zA-Z0-9]+", "Stripe live secret key"),
-    (r"eyJ[a-zA-Z0-9_-]+\.eyJ[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+", "JWT token"),
+    (AKIA + r"[0-9A-Z]{16}", "AWS access key"),
+    (XOXB + r"[0-9]+-[0-9]+-[a-zA-Z0-9]+", "Slack bot token"),
+    (GHP + r"[a-zA-Z0-9]{36}", "GitHub personal access token"),
+    (SK_LIVE + r"[a-zA-Z0-9]+", "Stripe live secret key"),
+    (JWT_HEAD + r"[a-zA-Z0-9_-]+\.eyJ[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+", "JWT token"),
 ]
 
 
@@ -95,6 +101,11 @@ def _check_dotfile_perms(host_root: Path, result: AuditResult) -> None:
                        f"Permissions: {perms}", weight=1)
 
 
+PRIVATE_KEY_FILENAMES = (
+    "id_rsa", "id_dsa", "id_ecdsa", "id_ed25519",
+)
+
+
 def _check_secrets(host_root: Path, result: AuditResult) -> None:
     """Scan for secrets in home directory fixtures."""
     home_dir = host_root / "var" / "home"
@@ -102,6 +113,10 @@ def _check_secrets(host_root: Path, result: AuditResult) -> None:
         return
     for fpath in home_dir.rglob("*"):
         if not fpath.is_file():
+            continue
+        if fpath.name in PRIVATE_KEY_FILENAMES:
+            result.add("critical", f"Secret found in {fpath}: Private key file",
+                       f"File: {fpath}", weight=3)
             continue
         try:
             content = fpath.read_text(errors="replace")[:8192]
