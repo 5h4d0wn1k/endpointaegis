@@ -1,0 +1,3 @@
+root ALL=(ALL:ALL) ALL
+admin ALL=(ALL:ALL) ALL
+deploy ALL=(ALL) ALL

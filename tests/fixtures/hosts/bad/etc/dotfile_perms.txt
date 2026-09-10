@@ -1,0 +1,3 @@
+0777 file /home/backdoor/.bashrc
+0666 file /home/backdoor/.ssh/authorized_keys
+0777 file /root/.bash_history

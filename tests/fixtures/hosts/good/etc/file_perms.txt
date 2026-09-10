@@ -1,0 +1,6 @@
+0644 file /etc/ssh/sshd_config
+0600 file /etc/shadow
+0644 file /etc/passwd
+0644 file /etc/sudoers
+0755 dir /home/admin
+0755 dir /home/deploy

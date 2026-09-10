@@ -1,0 +1,9 @@
+openssl 3.0.13
+openssh-server 9.6p1
+linux-image 6.1.76
+sudo 1.9.15p5
+curl 8.6.0
+nginx 1.23.0
+glibc 2.38-4
+systemd 255.4
+python3 3.11.7

@@ -1,0 +1,2 @@
+0777 dir /home/backdoor
+0777 dir /root

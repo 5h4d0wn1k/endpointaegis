@@ -1,0 +1,2 @@
+0755 dir /home/admin
+0755 dir /home/deploy

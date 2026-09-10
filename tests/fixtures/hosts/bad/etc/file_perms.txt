@@ -1,0 +1,9 @@
+0777 file /usr/bin/python3
+0777 file /usr/bin/curl
+0777 file /usr/local/bin/helper
+4755 file /usr/bin/sudo
+4755 file /usr/bin/su
+4755 file /tmp/backdoor
+4755 file /dev/shm/rootkit
+0644 file /etc/ssh/sshd_config
+0777 dir /home/backdoor

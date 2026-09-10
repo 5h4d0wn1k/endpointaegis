@@ -1,0 +1,6 @@
+tcp 0 0 0.0.0.0:22 0.0.0.0:* LISTEN 1234/sshd
+tcp 0 0 0.0.0.0:23 0.0.0.0:* LISTEN 5678/telnetd
+tcp 0 0 0.0.0.0:3389 0.0.0.0:* LISTEN 9012/xrdp
+tcp 0 0 127.0.0.1:80 0.0.0.0:* LISTEN 2345/nginx
+tcp 0 0 0.0.0.0:8080 0.0.0.0:* LISTEN 3456/python3
+tcp 0 0 0.0.0.0:6379 0.0.0.0:* LISTEN 4567/redis-server
